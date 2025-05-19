@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --azul-oscuro: #2D4059;
+    --oro: #EA5455;
+    --fondo: #F6F6F6;
+    --verde: #A3B899;
+    --sombra: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--fondo);
+    color: var(--azul-oscuro);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: var(--azul-oscuro);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--sombra);
+}
+
+.logo {
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--verde);
+}
+
+/* Main content */
+main {
+    flex: 1;
+    padding: 2rem;
+}
+
+/* Tarjetas corrientes.html */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cardview {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--sombra);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.cardview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.cardview.expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background: white;
+    padding: 3rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-details {
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* Equipo.html */
+.miembros-equipo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.miembro {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--sombra);
+}
+
+.miembro img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.redes-sociales a {
+    color: var(--verde);
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+}
+
+/* Historia.html */
+.timeline-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.evento {
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--sombra);
+    position: relative;
+}
+
+.evento img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* Banner */
+.banner {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1600x900?philosophy');
+    background-size: cover;
+    color: white;
+    padding: 6rem 1rem;
+    text-align: center;
+}
+
+.banner h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilos específicos de corrientes.html */
+.titulo-principal {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.filosofo-info {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    align-items: center;
+}
+
+.filosofo-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Asegurar compatibilidad con el JS de expansión */
+.cardview:not(.expanded) .card-details {
+    display: none;
+}
+
+/* Footer */
+footer {
+    background-color: var(--azul-oscuro);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+}
+
+/* Utilidades */
+.no-scroll {
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+}
